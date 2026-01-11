@@ -7,7 +7,7 @@ function App() {
     <Container>
       <GlobalStyles/>
       <section className="contentSidebar">sidebar</section>
-      <section className="contentMenuambur">menu ambur</section>
+      <section className="contentMenuhambur">menu ambur</section>
       <section className="contentRouters"> routers </section>
     </Container>
   );
@@ -20,22 +20,27 @@ const Container = styled.main`
   
   .contentSidebar {
     display: none;
-    background-color: rgba(78,45,78,0.5);
+    background-color: rgba(74, 65, 201, 0.5);
   }
-  .contentMenuambur {
+  .contentMenuhambur {
     position: absolute;
-    background-color: rgba(78,45,78,0.5);
+    background-color: rgba(55, 163, 51, 0.5);
   }
   .contentRouters {
-    background-color: rgba(78,45,78,0.5);
+    background-color: rgba(175, 41, 119, 0.5);
+    grid-column: 1;
+    width: 100%;
   }
   @media ${Device.tablet} {
     grid-template-columns: 88px 1fr;
     .contentSidebar {
       display: initial;
     }
-    .contentMenuambur {
-      position: none;
+    .contentMenuhambur {
+      display: none;
+    }
+    .contentRouters {
+      grid-column: 1;
     }
   }
 `
