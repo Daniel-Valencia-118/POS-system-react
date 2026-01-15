@@ -1,12 +1,7 @@
-import styled from "styled-components";
+import { HomeTemplate } from "../index";
 
 export function Home() {
     return (
-        <container>
-            <span>Componente</span>
-        </container>
+        <HomeTemplate />
     );
 }
-const Container = styled.div`
-
-`

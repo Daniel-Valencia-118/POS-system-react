@@ -1,14 +1,14 @@
 import styled from "styled-components";
-import { GlobalStyles } from "./index";
+import { GlobalStyles, MyRoutes, Sidebar } from "./index";
 import {Device} from "./styles/breakpoints"
 
 function App() {
   return (
     <Container>
       <GlobalStyles/>
-      <section className="contentSidebar">sidebar</section>
+      <section className="contentSidebar"> <Sidebar/> </section>
       <section className="contentMenuhambur">menu ambur</section>
-      <section className="contentRouters"> routers </section>
+      <section className="contentRouters"> <MyRoutes/> </section>
     </Container>
   );
 
@@ -27,6 +27,7 @@ const Container = styled.main`
     background-color: rgba(55, 163, 51, 0.5);
   }
   .contentRouters {
+    display: flex;
     background-color: rgba(175, 41, 119, 0.5);
     grid-column: 1;
     width: 100%;
