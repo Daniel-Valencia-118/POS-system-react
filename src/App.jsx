@@ -1,18 +1,20 @@
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import { GlobalStyles, MyRoutes, Sidebar } from "./index";
 import {Device} from "./styles/breakpoints"
 
 function App() {
   return (
-    <Container>
-      <GlobalStyles/>
-      <section className="contentSidebar"> <Sidebar/> </section>
-      <section className="contentMenuhambur">menu ambur</section>
-      <section className="contentRouters"> <MyRoutes/> </section>
-    </Container>
+    <ThemeProvider>
+      <Container>
+        <GlobalStyles/>
+        <section className="contentSidebar"> <Sidebar/> </section>
+        <section className="contentMenuhambur">menu ambur</section>
+        <section className="contentRouters"> <MyRoutes/> </section>
+      </Container>
+    </ThemeProvider>
   );
-
 }
+
 const Container = styled.main`
   display: grid;
   grid-template-columns: 1fr;
