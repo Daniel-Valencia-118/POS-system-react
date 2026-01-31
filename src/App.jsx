@@ -1,15 +1,20 @@
 import styled, { ThemeProvider } from "styled-components";
 import { GlobalStyles, MyRoutes, Sidebar, useThemeStore } from "./index";
 import { Device } from "./styles/breakpoints"
+import { useState } from "react";
 
 function App() {
+  const [siderbarOpen, setSidebarOpen] = useState(false);
   const {themeStyle} = useThemeStore();
   return (
     <ThemeProvider theme={themeStyle} >
       <Container>
 
         <GlobalStyles/>
-        <section className="contentSidebar"> <Sidebar/> </section>
+        <section className="contentSidebar">
+          <Sidebar state={siderbarOpen} setState={() => setSidebarOpen(!siderbarOpen)} />
+          
+        </section>
         <section className="contentMenuhambur">menu ambur</section>
         <section className="contentRouters"> <MyRoutes/> </section>
         

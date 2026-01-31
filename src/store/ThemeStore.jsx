@@ -1,5 +1,5 @@
-import { create } from "zustand";
-import { Dark, Light} from "../styles/themes"
+import { create } from 'zustand';
+import { Dark, Light } from "../styles/themes"
 
 
 export const useThemeStore = create((set, get) => ({

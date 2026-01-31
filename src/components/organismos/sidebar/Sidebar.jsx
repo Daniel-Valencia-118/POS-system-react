@@ -4,6 +4,8 @@ import { v } from "../../../styles/variables";
 import { NavLink } from "react-router-dom";
 import { Icon } from "@iconify/react";
 
+
+// variable y su funcion de establecimiento
 export function Sidebar({ state, setState }) {
   return (
     <Main $isopen={state.toString()}>
@@ -41,6 +43,7 @@ export function Sidebar({ state, setState }) {
             className={state ? "LinkContainer active" : "LinkContainer"}
             key={label}
           >
+            {/* Navllink para navegar por todos las paginas enrutadas se puede usar link y navlink Navlink tiene atributo que te dice en que ruta estas o estado */}
             <NavLink
               to={to}
               className={({ isActive }) => `Links${isActive ? ` active` : ``}`}
@@ -110,7 +113,7 @@ const Container = styled.div`
       cursor: pointer;
       transition: 0.3s ease;
       transform: ${({ $isopen }) =>
-          $isopen === "true" ? `scale(0.7)` : `scale(1.5)`}
+    $isopen === "true" ? `scale(0.7)` : `scale(1.5)`}
         rotate(${({ theme }) => theme.logorotate});
       img {
         width: 100%;
@@ -202,7 +205,7 @@ const Main = styled.div`
     transition: all 0.2s;
     z-index: 3;
     transform: ${({ $isopen }) =>
-      $isopen === "true" ? `translateX(173px) rotate(3.142rad)` : `initial`};
+    $isopen === "true" ? `translateX(173px) rotate(3.142rad)` : `initial`};
     color: ${(props) => props.theme.text};
   }
 `;
