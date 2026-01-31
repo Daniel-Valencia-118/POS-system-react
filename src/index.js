@@ -1,4 +1,4 @@
-export * from './App';
+export { default as App } from './App';
 export * from './components/organismos/sidebar/Sidebar';
 export * from './components/template/HomeTemplate';
 export * from './main';
