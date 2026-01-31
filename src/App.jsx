@@ -1,15 +1,18 @@
 import styled, { ThemeProvider } from "styled-components";
-import { GlobalStyles, MyRoutes, Sidebar } from "./index";
-import {Device} from "./styles/breakpoints"
+import { GlobalStyles, MyRoutes, Sidebar, useThemeStore } from "./index";
+import { Device } from "./styles/breakpoints"
 
 function App() {
+  const {themeStyle} = useThemeStore();
   return (
-    <ThemeProvider>
+    <ThemeProvider theme={themeStyle} >
       <Container>
+
         <GlobalStyles/>
         <section className="contentSidebar"> <Sidebar/> </section>
         <section className="contentMenuhambur">menu ambur</section>
         <section className="contentRouters"> <MyRoutes/> </section>
+        
       </Container>
     </ThemeProvider>
   );

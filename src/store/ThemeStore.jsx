@@ -4,7 +4,7 @@ import { Dark, Light} from "../styles/themes"
 
 export const useThemeStore = create((set, get) => ({
     theme: "light",
-    themeStyle: "Light",
+    themeStyle: Light,
 
     // funcion para cambiar de tema de claro a oscuro
     setTheme: () => {
@@ -12,4 +12,4 @@ export const useThemeStore = create((set, get) => ({
         set({ theme: theme === "light" ? "dark" : "light"});
         set({ themeStyle: theme === "light" ? Dark : Light});
     },
-}))
+}));
