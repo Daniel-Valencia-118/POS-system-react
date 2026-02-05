@@ -4,7 +4,8 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        background-color: black;
+        /* background-color: ${(props) => props.theme.bgtotal};       por propiedades */
+        background-color: ${({theme}) => theme.bgtotal};        /* directamente a las propiedades */
         font-family: 'Poppins', sans-serif;
         color: #ffffff;
     }

@@ -7,15 +7,16 @@ function App() {
   const [siderbarOpen, setSidebarOpen] = useState(false);
   const {themeStyle} = useThemeStore();
   return (
-    <ThemeProvider theme={themeStyle} >
-      <Container>
-
+    <ThemeProvider theme={themeStyle} >   {/* theme es un atributo de themeProvider y este comparte los objetos de ThemeStore */}
+      <Container className={siderbarOpen?"active":""}> {/* Contenedor interactua con siderbar,cuando es true esta activo */}
+        {/* seccion 1 */}
         <GlobalStyles/>
         <section className="contentSidebar">
           <Sidebar state={siderbarOpen} setState={() => setSidebarOpen(!siderbarOpen)} />
           
         </section>
-        <section className="contentMenuhambur">menu ambur</section>
+        {/* seccion 2 */}
+        <section  className="contentMenuhambur">menu ambur</section>
         <section className="contentRouters"> <MyRoutes/> </section>
         
       </Container>
@@ -26,24 +27,29 @@ function App() {
 const Container = styled.main`
   display: grid;
   grid-template-columns: 1fr;
-  background-color: black;
+  transition: 0.1s ease-in-out; /* Transición suave para coincidir con la del sidebar */
+  color: ${({theme}) => theme.text};
+
   
   .contentSidebar {
     display: none;
-    background-color: rgba(74, 65, 201, 0.5);
+    /* background-color: rgba(78, 45, 78, 0.5); */
   }
   .contentMenuhambur {
     position: absolute;
-    background-color: rgba(55, 163, 51, 0.5);
+    /* background-color: rgba(53, 219, 11, 0.5); */
   }
   .contentRouters {
-    display: flex;
-    background-color: rgba(175, 41, 119, 0.5);
+    /* display: flex; */
+    /* background-color: rgba(231, 13, 136, 0.5); */
     grid-column: 1;
     width: 100%;
   }
   @media ${Device.tablet} {
     grid-template-columns: 88px 1fr;
+    &.active {
+      grid-template-columns: 260px 1fr;   /* mismo al definido en siderbar.jsx cuando se expande */
+    }
     .contentSidebar {
       display: initial;
     }
@@ -51,7 +57,7 @@ const Container = styled.main`
       display: none;
     }
     .contentRouters {
-      grid-column: 1;
+      grid-column: 2;
     }
   }
 `

@@ -29,9 +29,9 @@ export const DesplegableUser = [
 //data SIDEBAR
 export const LinksArray = [
   {
-    label: "Home",
-    icon: "noto-v1:house",
-    to: "/",
+    label: "Home",  // nombre
+    icon: "noto-v1:house",    // tipo de icono en https://icon-sets.iconify.design/
+    to: "/",  // hacia que rutas en este caso home
   },
   {
     label: "VENDER",
@@ -44,7 +44,7 @@ export const LinksArray = [
     to: "/kardex",
   },
   {
-    label: "Reportes",
+    label: "Report",
     icon: "flat-ui:graph",
     to: "/reportes",
   },
