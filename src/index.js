@@ -1,6 +1,7 @@
 export * from './App';
 export * from './components/organismos/ToggleTema';
 export * from './components/organismos/sidebar/Sidebar';
+export * from './components/atomos/Title';
 export * from './components/template/HomeTemplate';
 export * from './components/template/LoginTemplate';
 export * from './main';
