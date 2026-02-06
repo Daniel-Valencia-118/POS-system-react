@@ -1,5 +1,5 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { Home } from "../index"
+import { Home, Login } from "../index"
 
 // Rutas de sistema usando DOM y home desde index
 export function MyRoutes() {
