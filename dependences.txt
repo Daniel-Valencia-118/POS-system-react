@@ -3,3 +3,5 @@ npm install react-icons --save
 npm install styled-components
 npm install react-router-dom
 npm i zustand
+
+npm install @supabase/supabase-js
