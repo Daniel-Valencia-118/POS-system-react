@@ -14,6 +14,7 @@ export * from './pages/Home';
 export * from './pages/Login';
 export * from './routes/routes';
 export * from './store/ThemeStore';
+export * from './store/AuthStore.jsx';
 export * from './styles/GlobalStyles';
 export * from './styles/breakpoints';
 export * from './styles/themes';

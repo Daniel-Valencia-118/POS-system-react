@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import { Footer, Btnsave, Device, InputText2, Linea, Title } from "../../index";
+import { Footer, Btnsave, Device, InputText2, Linea, Title, useAuthStore } from "../../index";
 import { v } from "../../styles/variables";
 import {} from "../../styles/breakpoints";
 
 export function LoginTemplate() {
+  const {loginGoogle} = useAuthStore()
   return (
     <Container>
         <div className="card">
@@ -23,7 +24,7 @@ export function LoginTemplate() {
             <Linea>
               <span>0</span>
             </Linea>
-            <Btnsave titulo="Google" bgcolor="#FFF" icono={<v.iconogoogle/>} />
+            <Btnsave function = {loginGoogle} titulo="Google" bgcolor="#FFF" icono={<v.iconogoogle/>} />
         </div>
         
         <Footer/>
