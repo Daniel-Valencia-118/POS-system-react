@@ -1,25 +1,27 @@
 import styled, { ThemeProvider } from "styled-components";
-import { GlobalStyles, MyRoutes, Sidebar, useThemeStore } from "./index";
+import { AuthContextProvider, GlobalStyles, MyRoutes, Sidebar, useThemeStore } from "./index";
 import { Device } from "./styles/breakpoints"
 import { useState } from "react";
 
 function App() {
   const [siderbarOpen, setSidebarOpen] = useState(false);
-  const {themeStyle} = useThemeStore();
+  const { themeStyle } = useThemeStore();
   return (
     <ThemeProvider theme={themeStyle} >   {/* theme es un atributo de themeProvider y este comparte los objetos de ThemeStore */}
-      <Container className={siderbarOpen?"active":""}> {/* Contenedor interactua con siderbar,cuando es true esta activo */}
-        {/* seccion 1 */}
-        <GlobalStyles/>
-        <section className="contentSidebar">
-          <Sidebar state={siderbarOpen} setState={() => setSidebarOpen(!siderbarOpen)} />
-          
-        </section>
-        {/* seccion 2 */}
-        <section  className="contentMenuhambur">menu ambur</section>
-        <section className="contentRouters"> <MyRoutes/> </section>
-        
-      </Container>
+      <AuthContextProvider>
+        {/* El contexto estará escuchando siempre lo que pase dentro, aquí 'container' */}
+        <Container className={siderbarOpen ? "active" : ""}> {/* Contenedor interactua con siderbar,cuando es true esta activo */}
+          {/* seccion 1 */}
+          <GlobalStyles />
+          <section className="contentSidebar">
+            <Sidebar state={siderbarOpen} setState={() => setSidebarOpen(!siderbarOpen)} />
+
+          </section>
+          {/* seccion 2 */}
+          <section className="contentMenuhambur">menu ambur</section>
+          <section className="contentRouters"> <MyRoutes /> </section>
+        </Container>
+      </AuthContextProvider>
     </ThemeProvider>
   );
 }
@@ -28,7 +30,7 @@ const Container = styled.main`
   display: grid;
   grid-template-columns: 1fr;
   transition: 0.1s ease-in-out; /* Transición suave para coincidir con la del sidebar */
-  color: ${({theme}) => theme.text};
+  color: ${({ theme }) => theme.text};
 
   
   .contentSidebar {

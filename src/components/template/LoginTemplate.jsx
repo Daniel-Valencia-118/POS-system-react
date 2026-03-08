@@ -4,7 +4,7 @@ import { v } from "../../styles/variables";
 import {} from "../../styles/breakpoints";
 
 export function LoginTemplate() {
-  const {loginGoogle} = useAuthStore()
+  const {loginGoogle} = useAuthStore();
   return (
     <Container>
         <div className="card">
@@ -24,7 +24,7 @@ export function LoginTemplate() {
             <Linea>
               <span>0</span>
             </Linea>
-            <Btnsave function = {loginGoogle} titulo="Google" bgcolor="#FFF" icono={<v.iconogoogle/>} />
+            <Btnsave funcion = {loginGoogle} titulo="Google" bgcolor="#FFF" icono={<v.iconogoogle/>} />
         </div>
         
         <Footer/>
