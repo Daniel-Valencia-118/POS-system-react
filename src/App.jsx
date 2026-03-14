@@ -1,26 +1,31 @@
 import styled, { ThemeProvider } from "styled-components";
-import { AuthContextProvider, GlobalStyles, MyRoutes, Sidebar, useThemeStore } from "./index";
+import { AuthContextProvider, GlobalStyles, Login, MyRoutes, Sidebar, useThemeStore } from "./index";
 import { Device } from "./styles/breakpoints"
 import { useState } from "react";
+import { useLocation } from "react-router-dom"; // Para saber donde nos encontramos
 
 function App() {
-  const [siderbarOpen, setSidebarOpen] = useState(false);
+  const [siderbarOpen, setSidebarOpen] = useState(false); // estado para el sidebar
   const { themeStyle } = useThemeStore();
+  const { pathname } = useLocation();
   return (
     <ThemeProvider theme={themeStyle} >   {/* theme es un atributo de themeProvider y este comparte los objetos de ThemeStore */}
-      <AuthContextProvider>
-        {/* El contexto estará escuchando siempre lo que pase dentro, aquí 'container' */}
-        <Container className={siderbarOpen ? "active" : ""}> {/* Contenedor interactua con siderbar,cuando es true esta activo */}
-          {/* seccion 1 */}
-          <GlobalStyles />
-          <section className="contentSidebar">
-            <Sidebar state={siderbarOpen} setState={() => setSidebarOpen(!siderbarOpen)} />
+      <AuthContextProvider> {/* El contexto estará escuchando siempre lo que pase dentro, aquí 'container' */} 
+        <GlobalStyles /> {/* estilos globales */}
+        { // Si la ruta es 'login' entonces cargar Login si no mostrar sidebar
+          pathname != "/login" ? (
+            <Container className={siderbarOpen ? "active" : ""}> {/* Contenedor interactua con siderbar,cuando es true esta activo */}
+              {/* seccion 1 */}
+              <section className="contentSidebar">
+                <Sidebar state={siderbarOpen} setState={() => setSidebarOpen(!siderbarOpen)} />
+              </section>
 
-          </section>
-          {/* seccion 2 */}
-          <section className="contentMenuhambur">menu ambur</section>
-          <section className="contentRouters"> <MyRoutes /> </section>
-        </Container>
+              {/* seccion 2 */}
+              <section className="contentMenuhambur">menu ambur</section>
+              <section className="contentRouters"> <MyRoutes /> </section>
+            </Container>
+          ) : (<Login/>)
+        }
       </AuthContextProvider>
     </ThemeProvider>
   );

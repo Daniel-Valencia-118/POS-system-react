@@ -8,6 +8,11 @@ export function LoginTemplate() {
   return (
     <Container>
         <div className="card">
+            <ContentLogo>
+              <img src={v.logo} />
+              <span>Valencia's</span>
+            </ContentLogo>
+
             <Title $paddingbottom="20px"> Ingresar </Title>
             <form>
               <InputText2>
@@ -39,6 +44,8 @@ const Container = styled.div`
   align-items: center;
   text-align: center; 
   flex-direction: column;
+  padding: 0 10px;
+  color: ${({ theme }) => theme.text}; // color del container
 
   .card {
     display: flex;
@@ -52,4 +59,17 @@ const Container = styled.div`
       width: 400px;
     }
   }
-`
+`;
+
+const ContentLogo = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  span {
+    font-weight: 700;
+  }
+  img {
+    width: 10%;
+  }
+`;
