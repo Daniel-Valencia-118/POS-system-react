@@ -5,3 +5,5 @@ npm install react-router-dom
 npm i zustand
 
 npm install @supabase/supabase-js
+
+npm install sweetalert2
