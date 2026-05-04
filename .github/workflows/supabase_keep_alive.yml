@@ -2,17 +2,19 @@ name: Mantener Supabase Despierto
 
 on:
   schedule:
-    # Se ejecuta a las 00:00 UTC los lunes, miércoles y viernes
-    - cron: '0 0 * * 1,3,5'
-  workflow_dispatch: # Esto permite que lo pruebes manualmente con un botón
+    # Se ejecuta a las 00:00 UTC los lunes (1) y jueves (4)
+    - cron: '0 0 * * 1,4'
+  workflow_dispatch: 
 
 jobs:
   ping_supabase:
     runs-on: ubuntu-latest
     steps:
-      - name: Realizar consulta de actividad
+      - name: Realizar consulta de actividad (POST)
         run: |
-          curl -i -X GET "${{ secrets.SUPABASE_URL }}/rest/v1/p_active?select=*" \
+          curl -f -i -X POST "${{ secrets.SUPABASE_URL }}/rest/v1/heartbeat" \
           -H "apikey: ${{ secrets.SUPABASE_KEY }}" \
           -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY }}" \
-          -H "Range: 0-0"
+          -H "Content-Type: application/json" \
+          -H "Prefer: return=minimal" \
+          -d "{}"
